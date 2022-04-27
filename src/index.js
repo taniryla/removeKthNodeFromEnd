@@ -80,7 +80,7 @@ function removeKthNodeFromEnd(head, k) {
     console.log(count);
   }
   // let position = count minus K plus 1
-  let position = count;
+  let position = count - k + 1;
   // if nodeToBeRemoved = head, change it's value and next point
   // don't change it as the head of the linked list
 
