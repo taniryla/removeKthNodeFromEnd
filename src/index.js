@@ -62,14 +62,25 @@
 // 20.  Can you improve the performance?
 // 21.   How have other people solved this problem?
 
+class LinkedList {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
 function removeKthNodeFromEnd(head, k) {
   // current equals head and count equals 0
   let current = head;
   let count = 0;
-
   // traverse current til null and add counter
-
+  while (current !== null) {
+    count += 1;
+    current = current.next;
+    console.log(count);
+  }
   // let position = count minus K plus 1
+  let position = count;
   // if nodeToBeRemoved = head, change it's value and next point
   // don't change it as the head of the linked list
 
@@ -79,3 +90,22 @@ function removeKthNodeFromEnd(head, k) {
 
   // no return needed
 }
+
+removeKthNodeFromEnd(
+  {
+    head: "0",
+    nodes: [
+      { id: "0", next: "1", value: 0 },
+      { id: "1", next: "2", value: 1 },
+      { id: "2", next: "3", value: 2 },
+      { id: "3", next: "4", value: 3 },
+      { id: "4", next: "5", value: 4 },
+      { id: "5", next: "6", value: 5 },
+      { id: "6", next: "7", value: 6 },
+      { id: "7", next: "8", value: 7 },
+      { id: "8", next: "9", value: 8 },
+      { id: "9", next: null, value: 9 }
+    ]
+  },
+  4
+);
