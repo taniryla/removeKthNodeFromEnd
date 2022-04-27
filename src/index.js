@@ -31,7 +31,7 @@
 // // Step Two (Plan). Come up with concrete examples to help you understand the problem better. Find a connection between the data inputs and the unknown. You may be obliged to consider auxiliary problems if an immediate connection cannot be found.
 // // 8.  Have you seen it before? Or have you seen the same problem in a slightly different form? Do you know a related problem?
 // yes linked list construction remove
-
+// multiple pointers
 // linked list length
 
 // // 9.   Do you know a coding strategy that could be useful? Look at the unknown! And try to think of a familiar problem having the same or a similar unknown. Here is a problem related to yours and solve before. Could you use it? Could you use its result? Could you use its method?
@@ -70,30 +70,25 @@ class LinkedList {
 }
 
 function removeKthNodeFromEnd(head, k) {
-  // current equals head and count equals 0
-  let current = head;
-  let count = 0;
-  // traverse current til null and add counter
-  while (current !== null) {
-    count += 1;
-    current = current.next;
-    console.log(count);
+  // use two pointers
+  let pointer1 = head;
+  let pointer2 = pointer1.next.next;
+  // traverse current til null with 2 pointers
+  while (pointer1 !== null || pointer2 !== null) {
+    pointer1 = pointer1.next;
+    pointer2 = pointer2.next.next;
   }
-  // let position = count minus K plus 1
-  let nodeToBeRemoved = count - k + 1;
+  //
   // if nodeToBeRemoved = head, change it's value and next point
   // don't change it as the head of the linked list
-  if (nodeToBeRemoved.value === head) {
-    this.head = current.next;
+  if (pointer2 === null) {
+    this.head = nodeToBeRemoved.next;
   }
-  while (current.value !== nodeToBeRemoved) {
+  while (pointer2.value !== nodeToBeRemoved) {
     // remove node (position)
-    current.prev.next = current.next;
-    current = null;
+    pointer1.next = pointer2.next;
+    pointer2 = null;
   }
-
-  // while current.value !== position, remove
-  // current.prev.next = current.next and current equals nulls
 
   // no return needed
 }
