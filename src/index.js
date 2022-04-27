@@ -63,17 +63,21 @@ see pseudocode
 // 20.  Can you improve the performance?
 // 21.   How have other people solved this problem?
 
-// if nodeToBeRemoved = head, change it's value and next point 
-// don't change it as the head of the linked list
 
-// current equals head and count equals 0
+function removeKthNodeFromEnd(head, k){
 
-// traverse current til null and add counter
-
-// let position = count minus K plus 1
-
-// remove node (position)
-// while current.value !== position, remove
-// current.prev.next = current.next and current equals nulls
-
-// no return needed
+  // if nodeToBeRemoved = head, change it's value and next point 
+  // don't change it as the head of the linked list
+  
+  // current equals head and count equals 0
+  
+  // traverse current til null and add counter
+  
+  // let position = count minus K plus 1
+  
+  // remove node (position)
+  // while current.value !== position, remove
+  // current.prev.next = current.next and current equals nulls
+  
+  // no return needed
+}
