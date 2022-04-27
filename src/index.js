@@ -86,7 +86,7 @@ function removeKthNodeFromEnd(head, k) {
   if (nodeToBeRemoved.value === head) {
     this.head = current.next;
   }
-  while (current.value !== position) {
+  while (current.value !== nodeToBeRemoved) {
     // remove node (position)
     current.prev.next = current.next;
     current = null;
