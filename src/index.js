@@ -71,18 +71,21 @@ class LinkedList {
 
 function removeKthNodeFromEnd(head, k) {
   // use two pointers
-  let pointer1 = head;
-  let pointer2 = pointer1.next.next;
-  // traverse current til null with 2 pointers
-  while (pointer1 !== null || pointer2 !== null) {
-    pointer1 = pointer1.next;
-    pointer2 = pointer2.next.next;
+  let counter = 1;
+  let slow = head;
+  let fast = head;
+  // traverse while counter less than or equal to k
+  // fast = fast.next
+  // counter++
+  while (counter <= k) {
+    fast = fast.next;
+    counter++;
   }
   //
   // if nodeToBeRemoved = head, change it's value and next point
   // don't change it as the head of the linked list
-  if (pointer2 === null) {
-    this.head = nodeToBeRemoved.next;
+  if (fast === null) {
+    let nodeToBeRemoved = 
   }
   while (pointer2.value !== nodeToBeRemoved) {
     // remove node (position)
